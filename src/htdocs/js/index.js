@@ -1,6 +1,6 @@
 'use strict';
 
-var InvalidatorView = require('InvalidatorView');
+var InvalidatorView = require('invalidator/InvalidatorView');
 
 
 InvalidatorView({
