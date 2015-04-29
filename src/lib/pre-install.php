@@ -47,21 +47,19 @@ $APACHE_CONFIG_FILE = $CONF_DIR . DIRECTORY_SEPARATOR . 'httpd.conf';
 $DEFAULTS = array(
   'APP_DIR' => $APP_DIR,
   'DATA_DIR' => str_replace('/apps/', '/data/', $APP_DIR),
-  'MOUNT_PATH' => ''//,
+  'MOUNT_PATH' => '',
 
-  // 'DB_DSN' => 'sqlite:data.db',
-  // 'DB_USER' => '',
-  // 'DB_PASS' => ''
+  'SQUID_SERVERS' => '',
+  'SQUID_HOSTNAMES' => ''
 );
 
 $HELP_TEXT = array(
   'APP_DIR' => 'Absolute path to application root directory',
   'DATA_DIR' => 'Absolute path to application data directory',
-  'MOUNT_PATH' => 'Url path to application'//,
+  'MOUNT_PATH' => 'Url path to application',
 
-  // 'DB_DSN' => 'Database connection DSN string',
-  // 'DB_USER' => 'Read-only username for database connections',
-  // 'DB_PASS' => 'Password for database user'
+  'SQUID_SERVERS' => 'Squid caching servers for invalidation (comma separated list)',
+  'SQUID_HOSTNAMES' => 'Hostname(s) to invalidate (comma separated list)'
 );
 
 
