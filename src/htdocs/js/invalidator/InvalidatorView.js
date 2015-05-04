@@ -14,6 +14,8 @@ var View = require('mvc/View'),
  * @param options.invalidator {CacheInvalidator}
  *        default CacheInvalidator().
  *        invalidator to use for invalidation.
+ * @param options.paths {Array}
+ *        array of paths to show in view.
  */
 var InvalidatorView = function (options) {
   var _this,
@@ -48,6 +50,10 @@ var InvalidatorView = function (options) {
     _paths = el.querySelector('.paths');
     _button = el.querySelector('button');
     _results = el.querySelector('.results');
+
+    if (options.paths) {
+      _paths.value = options.paths.join('\n');
+    }
 
     _button.addEventListener('click', _onClick);
   };
