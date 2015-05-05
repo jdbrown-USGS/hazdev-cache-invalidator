@@ -1,5 +1,8 @@
 'use strict';
 
-var ExampleModule = require('ExampleModule');
+var InvalidatorView = require('invalidator/InvalidatorView');
 
-ExampleModule();
+
+InvalidatorView({
+  el: document.querySelector('#application')
+});
