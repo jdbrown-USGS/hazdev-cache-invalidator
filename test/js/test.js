@@ -1,4 +1,4 @@
-/* global mocha */
+/* global mocha, describe, it */
 
 // PhantomJS is missing native bind support,
 //     https://github.com/ariya/phantomjs/issues/10522
@@ -39,9 +39,17 @@ if (!Function.prototype.bind) {
   mocha.reporter('html');
 
   // Add each test class here as they are implemented
+  // require('../spec/ExampleModuleTest');
+  describe('Dummy test suite', function () {
+    describe('Dummy test method', function () {
+      it('should pass', function () {
+        // ... and it does ...
+      });
+    });
+  });
 
   if (window.mochaPhantomJS) {
-      window.mochaPhantomJS.run();
+    window.mochaPhantomJS.run();
   } else {
     mocha.run();
   }

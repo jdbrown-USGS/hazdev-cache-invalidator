@@ -14,15 +14,19 @@ module.exports = function (grunt) {
   grunt.registerTask('build', [
     'clean',
     'dev',
-    'concurrent:dist' // uglify, copy:dist, cssmin
+    'copy:dist',
+    'uglify',
+    'postcss:dist'
   ]);
 
   // default task useful during development
   grunt.registerTask('default', [
     'dev',
 
-    'jshint:test',
-    'concurrent:test', // browserify:test, copy:test
+    'eslint:tests',
+    'browserify:test',
+    'browserify:bundle',
+    'copy:test',
     'connect:test',
     'mocha_phantomjs',
 
@@ -36,8 +40,10 @@ module.exports = function (grunt) {
 
   // builds development version of application
   grunt.registerTask('dev', [
-    'jshint:dev',
-    'concurrent:dev' // browserify:index, copy:dev, compass:dev
+    'eslint:scripts',
+    'browserify:index',
+    'copy:dev',
+    'postcss:build'
   ]);
 
   // starts distribution server and preview
@@ -52,8 +58,10 @@ module.exports = function (grunt) {
   grunt.registerTask('test', [
     'dev',
 
-    'jshint:test',
-    'concurrent:test', // browserify:test, copy:test
+    'eslint:tests',
+    'browserify:test',
+    'browserify:bundle',
+    'copy:test',
     'connect:test',
     'mocha_phantomjs'
   ]);

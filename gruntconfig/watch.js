@@ -14,12 +14,12 @@ var watch = {
     ]
   },
 
-  compass: {
+  postcss: {
     files: [
       config.src + '/htdocs/**/*.scss'
     ],
     tasks: [
-      'compass:dev'
+      'postcss:build'
     ]
   },
 
@@ -28,8 +28,10 @@ var watch = {
       config.test + '/**/*'
     ],
     tasks: [
-      'jshint:test',
-      'concurrent:test'
+      'eslint:tests',
+      'browserify:test',
+      'browserify:bundle',
+      'copy:test'
     ]
   },
 
@@ -38,7 +40,7 @@ var watch = {
       config.src + '/htdocs/**/*.js'
     ],
     tasks: [
-      'jshint:dev',
+      'eslint:scripts',
       'browserify:index',
       'browserify:bundle'
     ]
@@ -50,7 +52,7 @@ var watch = {
       'gruntconfig/**/*.js'
     ],
     tasks: [
-      'jshint:gruntfile'
+      'eslint:gruntfile'
     ]
   },
 
