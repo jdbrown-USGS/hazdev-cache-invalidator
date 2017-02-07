@@ -1,16 +1,49 @@
 'use strict';
 
-var config = {
-  src: 'src',
+
+var fs = require('fs'),
+    ini = require('ini');
+
+
+var config,
+    basePort,
+    iniConfig,
+    packageJson;
+
+basePort = 9140;
+iniConfig = ini.parse(fs.readFileSync('./src/conf/config.ini', 'utf-8'));
+packageJson = JSON.parse(fs.readFileSync('./package.json', 'utf-8'));
+
+
+config = {
   build: '.build',
-  buildPort: 8000,
-  dataPort: 8007,
+  buildPort: basePort,
+  dataPort: basePort + 7,
   dist: 'dist',
-  distPort: 8003,
-  liveReloadPort: 8009,
-  templatePort: 8008,
+  distPort: basePort + 1,
+  etc: 'etc',
+  example: 'example',
+  examplePort: basePort + 2,
+  ini: iniConfig,
+  lib: 'lib',
+  packageJson: packageJson,
+  src: 'src',
+  templatePort: basePort + 3,
   test: 'test',
-  testPort: 8001
+  testPort: basePort + 4,
+  liveReloadPort: basePort + 9,
+
+  cssPath: [
+    'src/htdocs/css',
+    'node_modules'
+  ],
+
+  jsPath: {
+    'src/htdocs/js': '*/*.js',
+    'node_modules/hazdev-webutils/src': '**/*.js'
+  }
+
 };
+
 
 module.exports = config;

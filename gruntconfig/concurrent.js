@@ -4,13 +4,13 @@ var concurrent = {
   dev: [
     'browserify:index',
     'copy:dev',
-    'compass:dev'
+    'postcss:build'
   ],
 
   dist: [
     'copy:dist',
     'uglify',
-    'cssmin'
+    'postcss:dist'
   ],
 
   test: [
