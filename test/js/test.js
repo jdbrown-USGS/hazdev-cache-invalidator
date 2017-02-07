@@ -41,7 +41,7 @@ if (!Function.prototype.bind) {
   // Add each test class here as they are implemented
 
   if (window.mochaPhantomJS) {
-      window.mochaPhantomJS.run();
+    window.mochaPhantomJS.run();
   } else {
     mocha.run();
   }

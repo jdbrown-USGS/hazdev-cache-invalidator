@@ -28,7 +28,7 @@ var watch = {
       config.test + '/**/*'
     ],
     tasks: [
-      'jshint:test',
+      'eslint:tests',
       'concurrent:test'
     ]
   },
@@ -38,7 +38,7 @@ var watch = {
       config.src + '/htdocs/**/*.js'
     ],
     tasks: [
-      'jshint:dev',
+      'eslint:scripts',
       'browserify:index',
       'browserify:bundle'
     ]
@@ -50,7 +50,7 @@ var watch = {
       'gruntconfig/**/*.js'
     ],
     tasks: [
-      'jshint:gruntfile'
+      'eslint:gruntfile'
     ]
   },
 

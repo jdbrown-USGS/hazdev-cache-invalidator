@@ -21,7 +21,7 @@ module.exports = function (grunt) {
   grunt.registerTask('default', [
     'dev',
 
-    'jshint:test',
+    'eslint:tests',
     'concurrent:test', // browserify:test, copy:test
     'connect:test',
     'mocha_phantomjs',
@@ -36,7 +36,7 @@ module.exports = function (grunt) {
 
   // builds development version of application
   grunt.registerTask('dev', [
-    'jshint:dev',
+    'eslint:scripts',
     'concurrent:dev' // browserify:index, copy:dev, postcss:build
   ]);
 
@@ -52,7 +52,7 @@ module.exports = function (grunt) {
   grunt.registerTask('test', [
     'dev',
 
-    'jshint:test',
+    'eslint:tests',
     'concurrent:test', // browserify:test, copy:test
     'connect:test',
     'mocha_phantomjs'
