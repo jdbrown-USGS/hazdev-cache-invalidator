@@ -29,7 +29,9 @@ var watch = {
     ],
     tasks: [
       'eslint:tests',
-      'concurrent:test'
+      'browserify:test',
+      'browserify:bundle',
+      'copy:test'
     ]
   },
 
